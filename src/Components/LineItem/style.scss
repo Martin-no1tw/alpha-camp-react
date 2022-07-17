@@ -1,0 +1,30 @@
+.lineitem {
+  display: flex;
+  justify-content: space-between;
+  .rightBlock {
+    margin-left: 21px;
+    .title,
+    .count {
+      display: flex;
+      justify-content: space-between;
+    }
+  .title {
+
+      .text {
+        margin-right: 61px;
+      }
+    }
+  .count {
+    width: 116px;
+    .minus,
+    .plus {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: #F0F0F5;
+      border: none;
+      cursor: pointer;
+    }
+    }
+  }
+}

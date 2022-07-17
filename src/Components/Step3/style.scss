@@ -1,0 +1,36 @@
+.main {
+  margin-top: 20px ;
+  margin-left: 82px;
+  width: 540px;
+  height: 288px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .formRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .formItem {
+      display: flex;
+      flex-direction: column;
+    }
+    .name{
+      color: #808080;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .w-350 {
+      width: 350px;
+    }
+    .w-255 {
+      width: 255px;
+    }
+    input, select {
+      height: 40px;
+    }
+  }
+}

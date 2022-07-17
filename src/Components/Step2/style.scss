@@ -1,0 +1,66 @@
+.container{
+  margin-left: 82px;
+}
+
+.standard-container, .dhl-container{
+  display: flex;
+  flex-wrap:wrap;
+  border: 1px solid #2A2A2A;
+  width: 435px;
+  height:60px;
+  border-radius:4px;
+}
+
+.dhl-container{
+  margin-top: 24px;
+}
+
+.shipping-basic, .shipping-dhl {
+  width: 203px;
+  height: 20px;
+  left: 60px;
+  top: 11px;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.shipping-dhl{
+  font-weight: 700;
+}
+
+
+.arrival{
+   width: 318px;
+    height: 16px;
+    left: 60px;
+    top: 33px;
+    margin-left: 46px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+.charge{
+  margin-top: 10px;
+  margin-left: 150px;
+  width: 24px;
+  height: 16px;
+  right: 20px;
+  top: 13px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+}
+
+.check{
+  margin-top: 22px;
+  margin-left: 10px;
+}

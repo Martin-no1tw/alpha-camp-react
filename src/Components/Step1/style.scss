@@ -1,0 +1,70 @@
+h2 {
+  margin-left: 82px;
+}
+
+input{
+  font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #999999;
+    padding-left: 16px;
+}
+
+select{
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    padding-left: 16px;
+    color: #999999;
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    background: url("../../../public/arrow.png") no-repeat right center transparent;
+    background-size:10px;
+    background-position: 140px;
+}
+
+.input-title{
+  font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #808080;
+}
+.form-basic,.form-contact,.form-address{
+  display: flex;
+  margin-left: 82px;
+  margin-top: 20px;
+}
+
+.form-select {
+  border: 1px solid #4A4A4A;
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+}
+.form-name{
+  margin-left: 30px;
+}
+.input-name, .form-control-address{
+  width: 350px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #4A4A4A;
+}
+
+.form-control{
+  width: 251.81px;
+  height: 40px;
+  border: 1px solid #4A4A4A;
+  border-radius: 4px;
+}
+.input-email,.input-address{
+  margin-left: 30px;
+}

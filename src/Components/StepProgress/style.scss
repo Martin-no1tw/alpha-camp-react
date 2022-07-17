@@ -1,0 +1,28 @@
+.stepProgress {
+  margin-top: 20px;
+  margin-left: 82px;
+  margin-bottom: 64px;
+  .title{
+    font-size: 32px;
+    font-weight: 700;
+    padding-bottom: 48px;
+  }
+  .progressBlock{
+    display: flex;
+    align-items: center;
+    .item{
+      display: flex;
+      align-items: center;
+      .number {
+        margin-right: 8px;
+      }
+    }
+    .connectLine {
+      margin: 0 32px;
+      height: 1px;
+      width: 60px;
+      height: 2px;
+      background-color: #000;
+    }
+  }
+} 

@@ -1,0 +1,42 @@
+.button-group {
+  margin-top:20px;
+  margin-left: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prev {
+  background-color: white;
+  color: black;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  padding: 9px;
+}
+
+.prev:hover {
+  background-color: rgb(228, 228, 228);
+}
+
+.prev:disabled {
+  cursor: no-drop;
+}
+
+.next {
+  margin-left: 400px;
+  background-color: rgb(254, 90, 118);
+  color: white;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  padding: 9px;
+}
+
+.next:hover {
+  background-color: rgb(255, 106, 131);
+}
+
+.next:disabled {
+  display: none;
+}
