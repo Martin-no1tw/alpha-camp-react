@@ -1,11 +1,12 @@
 import '../css/style.scss';
-import Header from './Header/index';
-import Step1 from './Step1/index';
-import Step2 from './Step2/index';
-import Step3 from './Step3/index';
-import Cart from './Cart/index';
-import StepProgress from './StepProgress/index';
-import ProgressControl from './ProgressControl/index';
+import Header from './Header';
+import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
+import Cart from './Cart';
+import StepProgress from './StepProgress';
+import ProgressControl from './ProgressControl';
+import Footer from './Footer';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <div className="cart">
           <Cart />
         </div>
+        <Footer />
       </div>
     </div>
   );
