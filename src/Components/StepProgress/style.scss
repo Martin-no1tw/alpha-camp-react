@@ -1,23 +1,18 @@
 .stepProgress {
-  margin-top: 20px;
-  margin-left: 82px;
   margin-bottom: 64px;
-  .title{
+  margin-left: 82px;
+
+  .title {
     font-size: 32px;
     font-weight: 700;
     padding-bottom: 48px;
   }
-  .progressBlock{
+
+  .progressBlock {
     display: flex;
     align-items: center;
-    .item{
-      display: flex;
-      align-items: center;
-      .number {
-        margin-right: 8px;
-      }
-    }
-    .connectLine {
+
+    .Line {
       margin: 0 32px;
       height: 1px;
       width: 60px;
@@ -25,4 +20,46 @@
       background-color: #000;
     }
   }
-} 
+}
+
+.item {
+display: flex;
+  align-items: center;
+  color: lightgray;
+  /* base style */
+  .number {
+    height: 22px;
+      width: 22px;
+      margin-right: 10px;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      background: #fff;
+      border-radius: 50%;
+    
+      color: lightgray;
+      border: 1px solid lightgray;
+    /* base number style */
+  }
+
+  &.active {
+color: black;
+    /* active style */
+    .number {
+      height: 22px;
+        width: 22px;
+        margin-right: 10px;
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        background: #000;
+        border-radius: 50%;
+        color: white;
+      /* active number style */
+    }
+  }
+}

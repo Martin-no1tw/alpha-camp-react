@@ -1,19 +1,75 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import './style.scss';
+import arrowLeft from '../../assets/img/arrowLeft.svg';
+import arrowRight from '../../assets/img/arrowRight.svg';
 
-const ProgressControl = () => {
+type ProgressControlFlow = {
+  step: Number,
+  setStep: Function,
+};
+
+const ProgressControl: React.FC<ProgressControlFlow> = (props) => {
+  const { step, setStep } = props;
+
+  const clickNext = () => {
+    if (step === 3) return;
+    setStep(step + 1);
+  };
+  const clickPrevious = () => {
+    if (step === 1) return;
+    setStep(1);
+  };
+  if (step === 2) {
+    setStep(2);
+  }
+  if (step === 3) {
+    setStep(3);
+  }
+
+  const STEP_SETTINGS = {
+    1: {
+      previousText: '',
+      nextText: '下一步',
+      previusArrow: null,
+      nextArrow: <img src={arrowRight} alt="" />,
+    },
+    2: {
+      previousText: '上一步',
+      previusArrow: <img src={arrowLeft} alt="" />,
+      nextText: '下一步',
+    },
+    3: {
+      previousText: '上一步',
+      previusArrow: <img src={arrowLeft} alt="" />,
+      nextText: '確認下單',
+    },
+  };
+
+  const settings = STEP_SETTINGS[step];
+
+  const previous = (
+    <button className="previous" onClick={clickPrevious}>
+      {settings.previusArrow}
+      {settings.previousText}
+    </button>
+  );
+
+  const next = (
+    <button className="next" onClick={clickNext}>
+      {settings.nextText}
+      {settings.nextArrow}
+    </button>
+  );
+
   return (
-    <section className="button-group">
-      <button className="prev" disabled>
-        上一步
-      </button>
-      <button className="next">下一步</button>
-      <button className="next" disabled>
-        確認下單
-      </button>
-      <hr />
-    </section>
+    <div className="progressStep">
+      <div className="btnGroup">
+        {previous}
+        {next}
+      </div>
+    </div>
   );
 };
+
 export default ProgressControl;

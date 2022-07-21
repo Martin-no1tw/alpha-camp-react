@@ -4,7 +4,7 @@ import './style.scss';
 
 const Step2 = () => {
   return (
-    <div className="container">
+    <div className="transfer-container">
       <h3>運送方式</h3>
       <form>
         <div className="standard-container">

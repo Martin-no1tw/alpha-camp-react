@@ -1,42 +1,32 @@
-.button-group {
-  margin-top:20px;
+.progressStep {
+  padding: 48px 0 120px 0;
   margin-left: 82px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.prev {
-  background-color: white;
-  color: black;
-  border: 0;
-  outline: none;
-  border-radius: 5px;
-  padding: 9px;
-}
+  .btnGroup {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 1px lightgrey;
 
-.prev:hover {
-  background-color: rgb(228, 228, 228);
-}
+    button {
+      margin-top: 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
 
-.prev:disabled {
-  cursor: no-drop;
-}
+    .previous {
+      background-color: #FFFFFF;
+      color: #000000;
+      width: 174px;
+      height: 46px;
+    }
 
-.next {
-  margin-left: 400px;
-  background-color: rgb(254, 90, 118);
-  color: white;
-  border: 0;
-  outline: none;
-  border-radius: 5px;
-  padding: 9px;
-}
+    .next {
+      background-color: #F67599;
+      color: #FFFFFF;
+      width: 174px;
+      height: 46px;
+    }
 
-.next:hover {
-  background-color: rgb(255, 106, 131);
-}
-
-.next:disabled {
-  display: none;
+  }
 }
