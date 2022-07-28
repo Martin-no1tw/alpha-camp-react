@@ -23,17 +23,16 @@
 }
 
 :global(.item) {
-display: flex;
+  display: flex;
   align-items: center;
   color: lightgray;
-  /* base style */
 
-
-    
-  
 }
 
- :global(.number) {
+:global(.number){
+  display: flex;
+    align-items: center;
+    color: lightgray;
   height: 22px;
   width: 22px;
   margin-right: 10px;
@@ -50,22 +49,22 @@ display: flex;
   /* base number style */
 }
 
- :global(&.active) {
+ :global(.active) {
+   color: black;
+
+   
+ }
+ :global(.number.active ){
   color: black;
-  /* active style */
+   height: 22px;
+   width: 22px;
+   margin-right: 10px;
 
+   display: flex;
+   justify-content: center;
+   align-items: center;
 
-.number {
-  height: 22px;
-  width: 22px;
-  margin-right: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: #000;
-  border-radius: 50%;
-  color: white;
-  /* active number style */
-}}
+   background: #000;
+   border-radius: 50%;
+   color: white;
+ }
