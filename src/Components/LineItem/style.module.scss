@@ -1,0 +1,37 @@
+.lineitem {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.text {
+margin-right: 61px;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+    }
+.rightBlock {
+   margin-right: 40px;
+}
+.title,
+.count {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+}
+.minus,
+.plus {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #F0F0F5;
+  border: none;
+  cursor: pointer;
+}
+.count {
+  width: 116px;
+margin-top:90px;
+
+}

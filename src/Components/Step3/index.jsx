@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { memo } from 'react';
 import './style.scss';
 
-const Step3 = () => {
+const Step3 = memo(() => {
   return (
     <div className="main">
       <div className="title">付款資訊</div>
@@ -30,6 +30,6 @@ const Step3 = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Step3;

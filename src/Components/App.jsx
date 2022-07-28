@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import '../css/style.scss';
 import Header from './Header';
 import Step1 from './Step1';
@@ -9,7 +9,24 @@ import StepProgress from './StepProgress';
 import ProgressControl from './ProgressControl';
 import Footer from './Footer';
 
-const App = () => {
+const Products = [
+  {
+    id: '1',
+    name: '貓咪罐罐',
+    img: 'https://picsum.photos/300/300?text=1',
+    price: 100,
+    quantity: 2,
+  },
+  {
+    id: '2',
+    name: '貓咪干干',
+    img: 'https://picsum.photos/300/300?text=2',
+    price: 200,
+    quantity: 1,
+  },
+];
+
+const App = memo(() => {
   const [step, setStep] = useState(1);
   let showStep;
   if (step === 1) {
@@ -32,11 +49,11 @@ const App = () => {
       </div>
 
       <div className="cart">
-        <Cart />
+        <Cart Products={Products} />
       </div>
       <Footer />
     </div>
   );
-};
+});
 
 export default App;

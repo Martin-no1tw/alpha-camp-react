@@ -1,6 +1,8 @@
 import './style.scss';
 // eslint-disable-next-line no-unused-vars
 import bootstrap from 'bootstrap';
+// eslint-disable-next-line no-unused-vars
+import React, { memo } from 'react';
 
 const cityName = [
   '請選擇縣市',
@@ -27,7 +29,7 @@ const cityName = [
   '馬祖縣',
 ];
 
-const Step1 = () => {
+const Step1 = memo(() => {
   return (
     <>
       <h2 className="title">寄送地址</h2>
@@ -92,6 +94,6 @@ const Step1 = () => {
       </form>
     </>
   );
-};
+});
 
 export default Step1;
