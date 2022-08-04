@@ -2,14 +2,8 @@
 import React, { memo } from 'react';
 import styles from './style.module.scss';
 
-type LineItemProps = {
-  id: string,
-  name: string,
-  img: string,
-  price: Number,
-};
-const LineItem: React.FC<LineItemProps> = memo((props) => {
-  const { id, name, img, price } = props;
+const LineItem = memo((props) => {
+  const { id, name, img, price, quantity, onChangeQuantity } = props;
   return (
     <div className={styles.lineitem} id={id}>
       <img className={styles.img} src={img} alt="img" />
@@ -19,9 +13,22 @@ const LineItem: React.FC<LineItemProps> = memo((props) => {
           <div className={styles.price}>{price}</div>
         </div>
         <div className={styles.count}>
-          <button className={styles.minus}>-</button>
-          <div className={styles.number}>1</div>
-          <button className={styles.plus}>+</button>
+          <button
+            className={styles.minus}
+            onClick={() => onChangeQuantity(id, -1)}
+          >
+            -
+          </button>
+          <div className={styles.number}>{quantity}</div>
+          <button
+            className={styles.plus}
+            onClick={() => onChangeQuantity(id, 1)}
+          >
+            +
+          </button>
+        </div>
+        <div className={styles.totalprice}>
+          <span id="total">{price * quantity}</span>
         </div>
       </div>
     </div>

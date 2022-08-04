@@ -1,4 +1,4 @@
-import { useState, memo } from 'react';
+import { useState, memo, useMemo } from 'react';
 import '../css/style.scss';
 import Header from './Header';
 import Step1 from './Step1';
@@ -8,26 +8,12 @@ import Cart from './Cart';
 import StepProgress from './StepProgress';
 import ProgressControl from './ProgressControl';
 import Footer from './Footer';
-
-const Products = [
-  {
-    id: '1',
-    name: '貓咪罐罐',
-    img: 'https://picsum.photos/300/300?text=1',
-    price: 100,
-    quantity: 2,
-  },
-  {
-    id: '2',
-    name: '貓咪干干',
-    img: 'https://picsum.photos/300/300?text=2',
-    price: 200,
-    quantity: 1,
-  },
-];
+import CartContext from './Context/CartContext';
+import products from '../data/items';
 
 const App = memo(() => {
   const [step, setStep] = useState(1);
+  const ProviderValue = useMemo(() => ({ step, products }), [step, products]);
   let showStep;
   if (step === 1) {
     showStep = <Step1 />;
@@ -49,7 +35,9 @@ const App = memo(() => {
       </div>
 
       <div className="cart">
-        <Cart Products={Products} />
+        <CartContext.Provider value={ProviderValue}>
+          <Cart />
+        </CartContext.Provider>
       </div>
       <Footer />
     </div>
