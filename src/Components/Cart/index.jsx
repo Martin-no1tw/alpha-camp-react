@@ -1,8 +1,9 @@
+/* eslint-disable import/no-named-as-default */
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useContext, useCallback, memo } from 'react';
 import styles from './style.module.scss';
-import CartContext from '../Context/CartContext';
 import LineItem from '../LineItem';
+import CartContext from '../Context/CartContext';
 
 const Cart = memo(() => {
   const data = useContext(CartContext);

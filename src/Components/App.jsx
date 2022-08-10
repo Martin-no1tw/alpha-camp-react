@@ -8,12 +8,14 @@ import Cart from './Cart';
 import StepProgress from './StepProgress';
 import ProgressControl from './ProgressControl';
 import Footer from './Footer';
-import CartContext from './Context/CartContext';
-import products from '../data/items';
+import CartContext, {
+  type CartContextControlFlow,
+} from './Context/CartContext';
+import products from '../data/products';
 
-const App = memo(() => {
+const App: React.FC<CartContextControlFlow> = memo(() => {
   const [step, setStep] = useState(1);
-  const ProviderValue = useMemo(() => ({ step, products }), [step, products]);
+  const ProviderValue = useMemo(() => ({ step, products }), [step]);
   let showStep;
   if (step === 1) {
     showStep = <Step1 />;
