@@ -1,9 +1,29 @@
 // eslint-disable-next-line no-unused-vars
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import styles from './style.module.scss';
+import useCartContext from '../../Context/CartContext';
+import {
+  actionUpdateQuantity,
+  actionRemoveCartItem,
+} from '../../hooks/actions';
 
 const LineItem = memo((props) => {
-  const { id, name, img, price, quantity, onChangeQuantity } = props;
+  const { id, name, img, price, quantity } = props;
+  const { dispatch } = useCartContext();
+
+  const atUpdateQuantity = useCallback(
+    (ItemId: String, num: Number) => {
+      dispatch(actionUpdateQuantity(ItemId, num));
+    },
+    [dispatch],
+  );
+  const atRemoveCartItem = useCallback(
+    (removeId: Number) => {
+      dispatch(actionRemoveCartItem(removeId));
+    },
+    [dispatch],
+  );
+
   return (
     <div className={styles.lineitem} id={id}>
       <img className={styles.img} src={img} alt="img" />
@@ -15,14 +35,14 @@ const LineItem = memo((props) => {
         <div className={styles.count}>
           <button
             className={styles.minus}
-            onClick={() => onChangeQuantity(id, -1)}
+            onClick={() => atRemoveCartItem(id, -1)}
           >
             -
           </button>
           <div className={styles.number}>{quantity}</div>
           <button
             className={styles.plus}
-            onClick={() => onChangeQuantity(id, 1)}
+            onClick={() => atUpdateQuantity(id, 1)}
           >
             +
           </button>
