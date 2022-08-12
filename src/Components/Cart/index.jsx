@@ -1,60 +1,53 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useContext, useCallback, memo } from 'react';
-import styles from './style.module.scss';
-import type { CartContextControlFlow } from '../Context/CartContext';
-import LineItem from '../LineItem';
+import { memo } from 'react';
 import useCartContext from '../../Context/CartContext';
+import LineItem from '../LineItem';
+import style from './style.module.scss';
 
-const Cart: React.FC<CartContextControlFlow> = memo(() => {
-  const data = useContext(useCartContext);
-  const [products, setProducts] = useState(data.products);
-
-  const onChangeQuantity = useCallback(
-    (id, num) => {
-      const newProducts = products.map((product) => {
-        if (product.id === id && product.quantity + num > 0) {
-          return {
-            ...product,
-            quantity: product.quantity + num,
-          };
-        }
-        return product;
-      });
-      return setProducts(newProducts);
-    },
-    [products],
-  );
-
-  const total = products.reduce(
-    (prev, cur) => prev + cur.price * cur.quantity,
-    0,
-  );
+const Cart = () => {
+  const { state } = useCartContext();
+  const { lineItems, totalAmount, transport } = state;
+  const transportMethod = (price: Number) => {
+    if (price === '') {
+      return <span>未選擇運送方式</span>;
+    }
+    if (price === 0) {
+      return <span>免費</span>;
+    }
+    return <span>{price}</span>;
+  };
 
   return (
-    <div className={styles.cart}>
-      <div className={styles.title}>購物籃</div>
-      {products.map((product) => {
-        return (
-          <LineItem
-            key={product.name}
-            id={product.id}
-            name={product.name}
-            img={product.img}
-            price={product.price}
-            quantity={product.quantity}
-            onChangeQuantity={onChangeQuantity}
-          />
-        );
-      })}
-      <div className={styles.deliveryFeeBlock}>
-        <p className={styles.title}>運費</p>
-        <p className={styles.content}>免費</p>
+    <div className="cart">
+      {/* tittle */}
+      <h4>購物籃</h4>
+      {/* product cards */}
+      <div className="cart">
+        {lineItems.map((item) => {
+          return (
+            <LineItem
+              key={item.id}
+              id={item.id}
+              img={item.img}
+              name={item.name}
+              quantity={item.quantity}
+              price={item.price}
+            />
+          );
+        })}
       </div>
-      <div className={styles.totalBlock}>
-        <p className={styles.title}>小計</p>
-        <p className={styles.content}>{total}</p>
+      <hr />
+      {/* delivery fee content */}
+      <div className={style.content}>
+        <span>運費</span>
+        {transportMethod(transport.price)}
+      </div>
+      <hr />
+      {/* subtotal */}
+      <div className={style.content}>
+        <span>總價格</span>
+        <span>{totalAmount === 0 ? '未選購任何商品' : `$${totalAmount}`}</span>
       </div>
     </div>
   );
-});
-export default Cart;
+};
+export default memo(Cart);

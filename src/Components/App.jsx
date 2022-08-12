@@ -1,4 +1,4 @@
-import { useState, memo, useMemo, useCallback } from 'react';
+import { useState, memo, useMemo } from 'react';
 import '../css/style.scss';
 import Header from './Header';
 import Step1 from './Step1';
@@ -32,10 +32,6 @@ const App = memo(() => {
   const [step, setStep] = useState(1);
   const [state, dispatch] = useShoppingCart();
 
-  const atStepChange = useCallback((count: Number) => {
-    setStep((prev) => prev + count);
-  }, []);
-
   let showStep;
   if (step === 1) {
     showStep = <Step1 />;
@@ -55,23 +51,24 @@ const App = memo(() => {
   }, [step, dispatch, state]);
 
   return (
-    <div className="container">
-      <div className="header-container">
-        <Header />
-        <div className="progress">
-          <StepProgress step={step} />
-          {showStep}
-          <ProgressControl step={step} onClickStepBtn={atStepChange} />
+    <CartContext.Provider value={ProviderValue}>
+      <div className="container">
+        <div className="header-container">
+          <Header />
+          <div className="progress">
+            <StepProgress step={step} />
+            {showStep}
+            <ProgressControl step={step} setStep={setStep} />
+          </div>
         </div>
-      </div>
 
-      <div className="cart">
-        <CartContext.Provider value={ProviderValue}>
+        <div className="cart">
           <Cart />
-        </CartContext.Provider>
+        </div>
+
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </CartContext.Provider>
   );
 });
 

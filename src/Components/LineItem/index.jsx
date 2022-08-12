@@ -2,24 +2,16 @@
 import React, { memo, useCallback } from 'react';
 import styles from './style.module.scss';
 import useCartContext from '../../Context/CartContext';
-import {
-  actionUpdateQuantity,
-  actionRemoveCartItem,
-} from '../../hooks/actions';
+import { actionUpdateQuantity } from '../../hooks/actions';
 
 const LineItem = memo((props) => {
   const { id, name, img, price, quantity } = props;
   const { dispatch } = useCartContext();
+  console.log(dispatch);
 
   const atUpdateQuantity = useCallback(
     (ItemId: String, num: Number) => {
       dispatch(actionUpdateQuantity(ItemId, num));
-    },
-    [dispatch],
-  );
-  const atRemoveCartItem = useCallback(
-    (removeId: Number) => {
-      dispatch(actionRemoveCartItem(removeId));
     },
     [dispatch],
   );
@@ -35,7 +27,7 @@ const LineItem = memo((props) => {
         <div className={styles.count}>
           <button
             className={styles.minus}
-            onClick={() => atRemoveCartItem(id, -1)}
+            onClick={() => atUpdateQuantity(id, -1)}
           >
             -
           </button>

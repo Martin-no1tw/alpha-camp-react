@@ -13,6 +13,7 @@ const initialState: State = {
     workDay: '',
   },
 };
+console.log(products);
 
 const calcTotalAmount = (
   lineItems: LineItems[],
@@ -52,16 +53,7 @@ const reducer = (state: State, action: Action): State => {
         totalAmount: calcTotalAmount(newlineItems, transport),
       };
     }
-    case 'REMOVE_ITEM': {
-      const { payload } = action;
-      const { lineItems, transport } = state;
-      const newLineItems = lineItems.filter((item) => item.id !== payload);
-      return {
-        ...state,
-        lineItems: newLineItems,
-        totalAmount: calcTotalAmount(newLineItems, transport),
-      };
-    }
+
     case 'CHANGE_TRANS': {
       const selectTrans = action.payload;
       return {

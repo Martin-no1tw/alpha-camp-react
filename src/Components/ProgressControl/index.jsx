@@ -11,6 +11,7 @@ type ProgressControlFlow = {
 
 const ProgressControl: React.FC<ProgressControlFlow> = memo((props) => {
   const { step, setStep } = props;
+  console.log(step);
 
   const clickNext = () => {
     if (step === 3) {
