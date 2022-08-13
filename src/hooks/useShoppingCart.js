@@ -13,18 +13,24 @@ const initialState: State = {
     workDay: '',
   },
 };
-console.log(products);
 
 const calcTotalAmount = (
   lineItems: LineItems[],
   transport: Transport,
 ): State => {
   const result = lineItems.reduce((total, currentItem) => {
+    console.log(currentItem);
+    console.log('total =>', total);
     return total + currentItem.price * currentItem.quantity;
   }, 0);
+  if (result < 0) {
+    return 0;
+  }
+
   if (transport.price === '') {
     return result;
   }
+
   return result + transport.price;
 };
 

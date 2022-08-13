@@ -7,7 +7,6 @@ import { actionUpdateQuantity } from '../../hooks/actions';
 const LineItem = memo((props) => {
   const { id, name, img, price, quantity } = props;
   const { dispatch } = useCartContext();
-  console.log(dispatch);
 
   const atUpdateQuantity = useCallback(
     (ItemId: String, num: Number) => {
@@ -28,6 +27,7 @@ const LineItem = memo((props) => {
           <button
             className={styles.minus}
             onClick={() => atUpdateQuantity(id, -1)}
+            disabled={quantity === 0 || quantity < 0}
           >
             -
           </button>
